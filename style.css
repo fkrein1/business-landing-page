@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
 :root {
   font-size: 62.5%; /* padrão 10px */
   --primary-color: hsla(170, 100%, 26%, 1);
@@ -11,15 +16,24 @@ body {
   text-align: center;
 }
 
+header {
+  width: 37.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4.1rem
+}
+
 h1 {
   font-size: 3.4rem;
   color: var(--headline);
-  line-height: 130%;
+  line-height: 130%; 
+  margin-bottom: 2.4rem;
 }
 
 h4 {
   font-size: 1.4rem;
-  color: var(--primary-color)
+  color: var(--primary-color);
+  margin-bottom: 1.6rem;
 }
 
 p {
@@ -27,9 +41,24 @@ p {
   line-height: 150%;
   font-weight: 400;
   color: var(--paragraph);
+  margin-bottom: 3.2rem;
 }
 
 button {
   background-color: var(--primary-color);
-  display: block;
+  border: none;
+  border-radius: 4rem;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 6rem;
+  height: 6.2rem;
+  width: 26.3rem;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
 }
