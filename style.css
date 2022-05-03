@@ -1,0 +1,35 @@
+:root {
+  font-size: 62.5%; /* padrão 10px */
+  --primary-color: hsla(170, 100%, 26%, 1);
+  --secondary-color: hsla(148, 23%, 89%, 1);
+  --headline: hsla(210, 11%, 15%, 1);
+  --paragraph: hsla(210, 9%, 31%, 1);
+}
+body {
+  font-family: 'DM Sans';
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3.4rem;
+  color: var(--headline);
+  line-height: 130%;
+}
+
+h4 {
+  font-size: 1.4rem;
+  color: var(--primary-color)
+}
+
+p {
+  font-size: 1.8rem;
+  line-height: 150%;
+  font-weight: 400;
+  color: var(--paragraph);
+}
+
+button {
+  background-color: var(--primary-color);
+  display: block;
+}
