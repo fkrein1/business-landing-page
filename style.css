@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -7,36 +8,68 @@
   font-size: 62.5%; /* padrão 10px */
   --primary-color: hsla(170, 100%, 26%, 1);
   --secondary-color: hsla(148, 23%, 89%, 1);
+  --brand-beige: hsla(39, 100%, 97%, 1);
+  --brand-ligth: hsla(148, 23%, 89%, 1);
   --headline: hsla(210, 11%, 15%, 1);
   --paragraph: hsla(210, 9%, 31%, 1);
+  --nav-heigt: 7.2rem;
 }
 body {
   font-family: 'DM Sans';
   font-size: 1.6rem;
   text-align: center;
+  overflow: overlay;
 }
+
+html,
+body {
+   width: 100%;
+   height: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+.wrapper {
+  width: 37.5rem;
+  margin-inline: auto;
+  padding-inline: 2.4rem;
+}
+
+/* ======== HEADER ======== */
 
 header {
-  width: 37.5rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 4.1rem
+  margin-top: calc(4.1rem + var(--nav-heigt));
 }
 
-h1 {
+header::before {
+  content:"";
+  background-color: var(--brand-ligth);
+  display: block;
+  width: 100%;
+  height: calc(108rem + var(--nav-heigt));
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+header h1 {
   font-size: 3.4rem;
   color: var(--headline);
   line-height: 130%; 
   margin-bottom: 2.4rem;
 }
 
-h4 {
+header h4 {
   font-size: 1.4rem;
   color: var(--primary-color);
   margin-bottom: 1.6rem;
 }
 
-p {
+header p {
   font-size: 1.8rem;
   line-height: 150%;
   font-weight: 400;
@@ -44,12 +77,18 @@ p {
   margin-bottom: 3.2rem;
 }
 
-button {
+header img {
+  width: 26.4rem;
+  display: block;
+  margin-inline: auto;
+  object-position: 0 2rem;
+}
+
+header button {
   background-color: var(--primary-color);
   border: none;
   border-radius: 4rem;
-  margin-right: auto;
-  margin-left: auto;
+  margin-inline: auto;
   margin-bottom: 6rem;
   height: 6.2rem;
   width: 26.3rem;
@@ -61,4 +100,154 @@ button {
   align-items: center;
   justify-content: center;
   gap: 1.6rem;
+}
+
+.stats {
+  background-color: var(--brand-beige);
+  width: 32.7rem;
+  padding-block: 4rem;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6rem;
+  border: var(--brand-ligth) 0.1rem solid;
+  border-radius: 0.6rem;
+}
+
+.stat h3 {
+  font-size: 4.8rem;
+  color: var(--headline);
+  line-height: 130%;
+  margin-bottom: 0.4rem;
+}
+
+.stat p {
+  line-height: 150%;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+/* ======== NAVIGATION ======== */
+
+nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  height: var(--nav-heigt);
+  transform: translateX(-50%);
+}
+
+nav .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav.scroll {
+  background-color: var(--primary-color);
+  width: 100vw;
+}
+
+nav.scroll svg:nth-child(1) path {
+  fill: white;
+}
+
+nav.scroll button path {
+  stroke: white;
+}
+
+nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ======== MENU EXPANDED ======== */
+body.menu-expanded {
+  overflow: hidden;
+}
+
+body.menu-expanded > :not(nav) {
+  display: none;
+}
+
+.menu, 
+.close-menu,
+body.menu-expanded .open-menu {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.menu-expanded  .menu {
+  position: fixed;
+  top: 0;
+  left:0;
+  background-color: var(--primary-color);
+  width: 100vw;
+  height: 100vh;
+
+  padding-top: var(--nav-heigt);
+}
+
+body.menu-expanded nav {
+  position: relative;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
+
+.menu ul:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+  margin-top: 6rem;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+}
+
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu button {
+  background: white;
+  padding: 16px 32px;
+  border-radius: 4rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 4.8rem;
+  margin-bottom: 8rem ;
+}
+
+body.menu-expanded .logo,
+body.menu-expanded button {
+  position: relative;
+  z-index: 10;
+}
+
+body.menu-expanded .logo path {
+  fill: white;
+}
+
+body.menu-expanded button path {
+  stroke: white;
 }
