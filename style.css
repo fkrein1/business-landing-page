@@ -35,6 +35,10 @@ body {
    height: 100%;
 }
 
+img {
+  max-width: 100%;
+}
+
 ul {
   list-style: none;
 }
@@ -47,6 +51,33 @@ ul {
 
 section {
   padding-block: 10rem;
+}
+
+section#home {
+  padding-bottom: 0;
+}
+
+section header h1 {
+  font-size: 3.4rem;
+  color: var(--headline);
+  line-height: 130%; 
+}
+
+section header h2 {
+  text-align: left;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 3.9rem;
+  color: var(--headline);
+}
+
+section header h4 {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  line-height: 150%;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
 }
 
 /* ======== NAVIGATION ======== */
@@ -194,16 +225,7 @@ body.menu-expanded button path {
 }
 
 #home h1 {
-  font-size: 3.4rem;
-  color: var(--headline);
-  line-height: 130%; 
   margin-bottom: 2.4rem;
-}
-
-#home h4 {
-  font-size: 1.4rem;
-  color: var(--primary-color);
-  margin-bottom: 1.6rem;
 }
 
 #home p {
@@ -267,20 +289,7 @@ body.menu-expanded button path {
 
 /* ======== SECTION SERVICES ======== */
 
-#services h4 { 
-  font-size: 1.4rem;
-  line-height: 150%;
-  letter-spacing: 0.08em;
-  color: var(--primary-color);
-  text-transform: uppercase;
-  margin-bottom: 1.6rem;
-}
-
 #services h2 {
-  font-weight: 700;
-  font-size: 3rem;
-  line-height: 3.9rem;
-  color: var(--headline);
   margin-bottom: 6rem;
 }
 
@@ -300,3 +309,39 @@ body.menu-expanded button path {
   padding: 2.4rem;
   border-radius: 0.6rem;
 }
+
+#services .card p {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 150%;
+  color: var(--paragraph);
+}
+
+/* ======== SECTION ABOUT ======== */
+
+#about {
+  background-color: var(--brand-beige);
+}
+#about h4 { 
+  text-align: left;
+}
+
+#about h2 {
+  text-align: left;
+  margin-bottom: 2.4rem;
+}
+
+#about p {
+  font-size: 1.6rem;
+  line-height: 150%;
+  font-weight: 400;
+  color: var(--paragraph);
+  margin-bottom: 6rem;
+  text-align: left;
+}
+
+#about img {
+  display: block;
+  margin-inline: auto;
+}
+
