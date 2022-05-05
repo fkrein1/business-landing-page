@@ -7,15 +7,19 @@
 }
 
 :root {
-  font-size: 62.5%; /* padrão 10px */
-  --primary-color: hsla(170, 100%, 26%, 1);
-  --secondary-color: hsla(148, 23%, 89%, 1);
+  --hue: 240;
+  --primary-color: hsla(var(--hue), 100%, 26%, 1);
   --brand-beige: hsla(39, 100%, 97%, 1);
-  --brand-ligth: hsla(148, 23%, 89%, 1);
+  --brand-ligth: hsla(calc(var(--hue) - 22), 23%, 89%, 1);
   --headline: hsla(210, 11%, 15%, 1);
   --paragraph: hsla(210, 9%, 31%, 1);
   --bg-light: hsla(180, 14%, 97%, 1);
+  --brand-green-hover: hsla(var(--hue), 100%, 14%, 1);
+
+  font-size: 62.5%; /* padrão 10px */
   --nav-heigth: 7.2rem;
+
+
 }
 body {
   font-family: 'DM Sans';
@@ -80,6 +84,33 @@ section header h4 {
   margin-bottom: 1.6rem;
 }
 
+/* custom colours */
+
+#services .card circle {
+  fill: var(--brand-ligth);
+}
+
+#navigation .logo path[fill*="#00856F"],
+#back-top-button circle {
+   fill: var(--primary-color);
+ }
+
+ #services .card path,
+ button.open-menu path[stroke*="#00856F"],
+ #contact p path {
+   stroke: var(--primary-color);
+ }
+
+ #navigation.scroll button.open-menu path[stroke*="#00856F"] {
+   stroke: white;
+ }
+ 
+ nav.scroll .logo path,
+ .menu-expanded #navigation .logo path[fill*="#00856F"],
+ #navigation.scroll .logo path[fill*="#00856F"] {
+   fill: white;
+ }
+
 /* ======== NAVIGATION ======== */
 
 nav {
@@ -101,21 +132,19 @@ nav.scroll {
   background-color: var(--primary-color);
 }
 
-nav.scroll .logo path {
-  fill: white;
-}
-
-nav.scroll button path {
-  stroke: white;
-}
-
 nav button {
   background: none;
   border: none;
   cursor: pointer;
 }
 
+button.whatsapp {
+  cursor: pointer;
+
+}
+
 /* ======== MENU EXPANDED ======== */
+
 body.menu-expanded {
   overflow: hidden;
 }
@@ -191,6 +220,12 @@ body.menu-expanded  .menu {
   margin-bottom: 8rem ;
 }
 
+.menu button:hover {
+  background-color: var(--primary-color);
+  color: white;
+  filter: brightness(1.3)
+}
+
 body.menu-expanded .logo,
 body.menu-expanded button {
   position: relative;
@@ -204,7 +239,7 @@ body.menu-expanded .logo path {
 body.menu-expanded button path {
   stroke: white;
 }
-
+ 
 /* ======== HOME ======== */
 
 #home {
@@ -249,8 +284,7 @@ body.menu-expanded button path {
   border-radius: 4rem;
   margin-inline: auto;
   margin-bottom: 6rem;
-  height: 6.2rem;
-  width: 26.3rem;
+  padding: 1.6rem 3.2rem;
   color: white;
   text-transform: uppercase;
   font-size: 1.4rem;
@@ -259,6 +293,12 @@ body.menu-expanded button path {
   align-items: center;
   justify-content: center;
   gap: 1.6rem;
+  transition: background 200ms;
+
+}
+
+#home button:hover {
+  background-color: var(--brand-green-hover);
 }
 
 #home .stats {
@@ -345,3 +385,96 @@ body.menu-expanded button path {
   margin-inline: auto;
 }
 
+/* ======== SECTION CONTACT ======== */
+
+#contact h2 {
+  margin-bottom: 3.2rem;
+}
+
+#contact p {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--paragraph);
+  line-height: 150%;
+}
+#contact .content {
+  margin-bottom: 3.2rem;
+  display: flex;
+  gap: 1.6rem;
+  flex-direction: column;
+}
+
+#contact button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 4rem;
+  margin-bottom: 6rem;
+  padding: 1.6rem 3.2rem;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  transition: background 200ms;
+}
+
+#contact button:hover {
+  background-color: var(--brand-green-hover);
+}
+
+/* ============== FOOTER ================ */
+
+footer {
+  background-color: var(--primary-color);
+  padding-block: 6rem;
+}
+
+footer svg.logo {
+  margin-bottom: 2.4rem;
+  display: block;
+}
+
+footer ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 3.2rem;
+}
+
+footer li {
+  text-align: left;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.1rem;
+  color: var(--brand-beige);
+}
+
+footer .social-links-footer {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+}
+
+/* ============== BACK TO TOP BUTTON ================ */
+
+#back-top-button {
+  position: fixed;
+  bottom: 1rem;
+  right: 2.5rem;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: 200ms;
+}
+
+#back-top-button.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
