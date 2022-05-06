@@ -255,7 +255,7 @@ body.menu-expanded button path {
   background-color: var(--brand-ligth);
   display: block;
   width: 100%;
-  height: calc(108rem + var(--nav-heigth));
+  height: calc(76% + var(--nav-heigth));
 
   position: absolute;
   top: 0;
@@ -487,11 +487,32 @@ footer .social-links-footer {
 
 @media (min-width: 1024px) {
   /* ============== GERAL ================ */
+  body {
+    overflow: auto;
+  }
+
   .wrapper {
     width: min(112rem, 100%);
     margin-inline: auto;
     padding-inline: 5rem;
     display: grid;
+  }
+
+  section {
+    padding-block: 16rem;
+  }
+
+  section h2 {
+    font-size: 4rem;
+    line-height: 5.2rem;
+  }
+
+  .col-a {
+    grid-area: A;
+  }
+
+  .col-b {
+    grid-area: B
   }
 
   /* ============== NAVIGATION ================ */
@@ -597,5 +618,107 @@ footer .social-links-footer {
   }
 
     /* ============== HOME ================ */
+
+  #home::before {
+    height: calc(95% - var(--nav-heigth))
+  }
+  #home {
+    padding-top: var(--nav-heigth);
+  }
+  
+    #home .wrapper {
+    grid-template-columns: 60.5rem 1fr;
+    grid-template-areas: 'A B' 'C C';
+  }
+
+  #home .col-a {
+    text-align: left;
+    align-self: center;
+  }
+
+  #home h1 {
+    font-size: 5.2rem;
+  }
+
+  #home .content p {
+    font-size: 1.8rem;
+  }
+    
+
+  #home .stats {
+    grid-area: C;
+    flex-direction: row;
+    padding: 6rem;
+    gap: 0;
+  }
+
+  #home .stats .stat + .stat {
+    border-left: 1px solid var(--primary-color);
+  }
+
+  #home .stats .stat {
+    flex: 1
+  }
+
+  #home button {
+    margin: 0
+  }
+
+  #home img {
+    width: 42rem;
+  }
+
+  /* ============== SERVICES ================ */
+
+  #services h2 {
+    width: 47rem;
+    margin-inline: auto;
+  }
+
+  #services .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4rem
+  }
+
+  #services .card {
+    width: 30%;
+    flex-grow: 1;
+  }
+
+  /* ============== ABOUT ================ */
+
+  #about .wrapper {
+    grid-template-columns: 48rem 1fr;
+    grid-template-areas: 'B A';
+    gap: 6.7rem;
+  }
+
+  #about .col-a {
+    align-self: center;
+  }
+  #about .content p {
+    margin-bottom: 0;
+  }
+
+  /* ============== CONTACT ================ */
+
+  #contact .wrapper {
+    grid-template-columns: 1fr 57.5rem;
+    grid-template-areas: 'A B';
+    gap: 14.1rem;
+  }
+
+  #contact .col-a {
+    align-self: center;
+  }
+
+  #contact button {
+    margin-bottom: 0;
+  }
+
+  #contact .content p {
+    margin-bottom: 0;
+  }
 
 }
