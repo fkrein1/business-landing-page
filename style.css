@@ -48,7 +48,7 @@ ul {
 }
 
 .wrapper {
-  width: 37.5rem;
+  width: min(50rem, 100%);
   margin-inline: auto;
   padding-inline: 2.4rem;
 }
@@ -84,7 +84,7 @@ section header h4 {
   margin-bottom: 1.6rem;
 }
 
-/* custom colours */
+/* CUSTOM COLORS  */
 
 #services .card circle {
   fill: var(--brand-ligth);
@@ -132,6 +132,11 @@ nav.scroll {
   background-color: var(--primary-color);
 }
 
+nav .menu,
+nav .close-menu {
+  position: fixed;
+}
+
 nav button {
   background: none;
   border: none;
@@ -171,7 +176,6 @@ body.menu-expanded .close-menu {
 }
 
 body.menu-expanded  .menu {
-  position: fixed;
   top: 0;
   left:0;
   background-color: var(--primary-color);
@@ -303,7 +307,7 @@ body.menu-expanded button path {
 
 #home .stats {
   background-color: var(--brand-beige);
-  width: 32.7rem;
+  width: 100%;
   padding-block: 4rem;
   margin-inline: auto;
   display: flex;
@@ -477,4 +481,67 @@ footer .social-links-footer {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+
+/* ============== RESPONSIVO DESKTOP ================ */
+
+@media (min-width: 1024px) {
+  /* ============== GERAL ================ */
+  .wrapper {
+    width: min(112rem, 100%);
+    margin-inline: auto;
+    padding-inline: 2.4rem;
+  }
+
+  /* ============== NAVIGATION ================ */
+  /* reset */
+  nav#navigation .wrapper * {
+    margin: 0;
+    padding: 0;
+    visibility: initial;
+    display: initial;
+    opacity: initial;
+    font-size: initial;
+    position: initial;
+    flex-direction: initial;
+    color: initial;
+    background-color: initial;
+  }
+
+  nav#navigation .close-menu,
+  nav#navigation .open-menu,
+  nav#navigation .social-links {
+    display: none;
+  }
+
+  nav#navigation .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 60%;
+  }
+
+  nav#navigation .menu ul:nth-child(1) {
+    display: flex;
+    gap: 3.2rem;
+  }
+
+  nav#navigation .menu ul li a {
+    line-height: 2.1rem;
+    color: var(--primary-color);
+    opacity: 0.7;
+  }
+
+  nav#navigation .menu button {
+    display: flex;
+    justify-content: center;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    padding: 1rem 2.4rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 4rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
 }
