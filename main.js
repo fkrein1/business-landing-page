@@ -15,9 +15,22 @@ function showTopButton() {
   else topBtn.classList.remove('show')
 }
 
+function highlightMenu() {
+  const menus = document.querySelectorAll('.menu-links li a')
+  if (scrollY > 0 && scrollY < 700) menus[0].classList.add('active')
+  else menus[0].classList.remove('active')
+
+  if (scrollY >= 700 && scrollY < 1690) menus[1].classList.add('active')
+  else menus[1].classList.remove('active')
+
+  if (scrollY >= 1690 && scrollY < 2415) menus[2].classList.add('active')
+  else menus[2].classList.remove('active')
+}
+
 function onScroll() {
-  changeHeaderColor();
+  changeHeaderColor()
   showTopButton()
+  highlightMenu()
 }
 
 function openMenu() {
