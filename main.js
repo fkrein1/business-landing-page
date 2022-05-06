@@ -1,7 +1,7 @@
 const btnMenuOpen = document.querySelector('.open-menu')
 const btnMenuClose = document.querySelector('.close-menu')
 const menuLinks = document.querySelectorAll('.menu-links li')
-const btnWhatsapp = document.querySelectorAll('button.whatsapp')
+const btnWhatsapp = document.querySelectorAll('button.whatsapp');
 
 function changeHeaderColor() {
   const nav = document.querySelector('#navigation')
